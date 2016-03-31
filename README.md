@@ -57,8 +57,13 @@ Blake:
 ### Sources/Papers Referenced:
 
 BareCloud (main paper referenced and one presented for Monday discussion):
+
 	https://www.cs.ucsb.edu/~vigna/publications/2014_USENIX_BareCloud.pdf
+	
 BareBox - [ ] same authors earlier work, utilize the differences between this and the new work to hopefully avoid potential pitfalls:
+
 	https://www.cs.ucsb.edu/~chris/research/doc/acsac11_barebox.pdf
+	
 Effective Detection of Split Personalities in Malware:
+
 	https://www.cs.ucsb.edu/~chris/research/doc/ndss10_splitmal.pdf
