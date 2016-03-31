@@ -27,18 +27,18 @@ __Stretch 2:__ Provide a more fine-grained analysis scheme derived from our work
 - [ ] Setup webserver that will serve the malware samples to the machines via some queueing mechanism
 - [ ] Familiarize ourselves with cuckoo framework
 - [ ] Set up the VM and configure it for automated dynamic analysis
-- [ ] Set up the Emulated environment and configure it for automated dynamic analysis
 - [ ] Log initial difficulties and issues in detail to redefine tasks in the coming week
 
 #### Week #2 (4/12-4/19)
 - [ ] Identify issues from first sprint and communicate to professors/blog posts any initial difficulties to work them out as quickly as possible
 - [ ] Collect malware samples with help from the professor or perhaps other groups/research contacts
 - [ ] Hopefully start running the machines, debug initial issues, finish any 
+- [ ] Set up the Emulated environment and configure it for automated dynamic analysis
 - [ ] Compile some naive results and prepare midterm report
 
 #### Week #3 (4/19-4/26)
-- [ ] (Stretch #1) Manual analysis of the initial results (classification via API calls), evaluate the efficacy of this method and look into differences in behaviour to try and systematically adjust the detection/classification of VM-aware malware and it's behaviour
-- [ ] (Stretch #2) Based on judgements that can be made on our work at this point we should be able to provide a projected timeline for how many samples our framwork can look at within the remaining time, attempt to scale our results to include as many samples as possible (hopefully come up with a more concrete projection by the time of the midterm)
+- [ ] Stretch #1 - Manual analysis of the initial results (classification via API calls), evaluate the efficacy of this method and look into differences in behaviour to try and systematically adjust the detection/classification of VM-aware malware and it's behaviour
+- [ ] Stretch #2 - Based on judgements that can be made on our work at this point we should be able to provide a projected timeline for how many samples our framwork can look at within the remaining time, attempt to scale our results to include as many samples as possible (hopefully come up with a more concrete projection by the time of the midterm)
 
 #### Project Wrap Up (4/26-4/27 Last Day)
 - [ ] Prepare white paper and final project results/presentation
