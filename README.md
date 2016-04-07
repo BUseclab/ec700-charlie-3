@@ -20,7 +20,7 @@ __Stretch 2:__ Provide a more fine-grained analysis scheme derived from our work
 
 ### Ideal Timeline:
 
-[Discussion/Research Inital Setup] (First Weekend: 3/30 - Monday 4/3)
+#### Discussion/Research Inital Setup (First Weekend: 3/31 - Monday 4/3)
 
 #### Week #1 (4/5 - 4/12)
 - [x] Obtain physical machine and connect it through one of the approved ports in the fourth floor labs, look into physical modifications necessary to automate restoration of machine state and external storage of sample analysis
