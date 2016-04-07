@@ -23,22 +23,27 @@ __Stretch 2:__ Provide a more fine-grained analysis scheme derived from our work
 [Discussion/Research Inital Setup] (First Weekend: 3/30 - Monday 4/3)
 
 #### Week #1 (4/5 - 4/12)
-- [ ] Obtain physical machine and connect it through one of the approved ports in the fourth floor labs, look into physical modifications necessary to automate restoration of machine state and external storage of sample analysis
+- [x] Obtain physical machine and connect it through one of the approved ports in the fourth floor labs, look into physical modifications necessary to automate restoration of machine state and external storage of sample analysis
+- [ ] Begin implementation of bare-metal machine setup and consciously outline decisions made on the blog
+- [ ] Look into methods to secure the bare-metal machine - limit malicious behaviour before running actual malware samples
 - [ ] Setup webserver that will serve the malware samples to the machines via some queueing mechanism
 - [ ] Familiarize ourselves with cuckoo framework
-- [ ] Set up the VM and configure it for automated dynamic analysis
+- [ ] Set up the VM and configure it for automated dynamic analysis including: pulling the sample from the server queue, executing it within analysis framework, collecting data on host for some period of time, communicate that information to the server and revert to last save state (before the malware sample was imported and executed)
 - [ ] Log initial difficulties and issues in detail to redefine tasks in the coming week
+- [ ] Prepare initial status for midterm report/presentation 4/13
 
 #### Week #2 (4/12-4/19)
 - [ ] Identify issues from first sprint and communicate to professors/blog posts any initial difficulties to work them out as quickly as possible
+- [ ] write some benign programs for initial testing
 - [ ] Collect malware samples with help from the professor or perhaps other groups/research contacts
 - [ ] Hopefully start running the machines, debug initial issues, finish any 
 - [ ] Set up the Emulated environment and configure it for automated dynamic analysis
-- [ ] Compile some naive results and prepare midterm report
+- [ ] Compile some naive results and prepare initial final report
 
 #### Week #3 (4/19-4/26)
 - [ ] Stretch #1 - Manual analysis of the initial results (classification via API calls), evaluate the efficacy of this method and look into differences in behaviour to try and systematically adjust the detection/classification of VM-aware malware and it's behaviour
 - [ ] Stretch #2 - Based on judgements that can be made on our work at this point we should be able to provide a projected timeline for how many samples our framwork can look at within the remaining time, attempt to scale our results to include as many samples as possible (hopefully come up with a more concrete projection by the time of the midterm)
+- [ ] Additionally automate the User Level interaction within the machines to see if it yeilds any interesting results.
 
 #### Project Wrap Up (4/26-4/27 Last Day)
 - [ ] Prepare white paper and final project results/presentation
