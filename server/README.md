@@ -7,6 +7,9 @@
 Install dependencies:
 `pip install -r requirements.txt`
 
+Get fresh db:
+`cp malware_init.db malware.db`
+
 Run server:
 `python server.py`
 
@@ -27,8 +30,8 @@ Run server:
 
 ### API
 
-| HTTP Method | URI                                   | Action                               |
-|-------------|---------------------------------------|--------------------------------------|
-| PUT/GET     | http://[hostname]/create/[string:machine_id] | Adds a new machine to the DB         |
-| GET         | http://[hostname]/[string:machine_id] | Downloads the next sample to process |
-| PUT/POST    | http://[hostname]/[string:machine_id] | Uploads the result of the analysis (only .zip)   |
+| HTTP Method | URI                                          | Action                                           |
+|-------------|----------------------------------------------|--------------------------------------------------|
+| PUT/GET     | http://[hostname]/create/[string:machine_id] | Adds a new machine to the DB                     |
+| GET         | http://[hostname]/[string:machine_id]        | Downloads the next sample to process             |
+| PUT/POST    | http://[hostname]/[string:machine_id]        | Uploads the result of the analysis (only .zip)   |
