@@ -11,9 +11,14 @@ def upload(file_name, file_path, machine_id, url):
     print r.text
 
 if __name__ == "__main__":
-    url = "http://127.0.0.1:5000/"
-    machine = "TEST"
-    file_path = "tests/test.zip"
-    file_name = file_path.split("/").last()
+    url = "http://127.0.0.1:80/"
+    machine = "m1"
 
+
+    # file_path = "tests/test.zip"
+    # file_name = file_path.split("/")[1]
+    # upload(file_name, file_path, machine, url)
+
+    file_path = "tests/2.zip"
+    file_name = file_path.split("/")[1]
     upload(file_name, file_path, machine, url)

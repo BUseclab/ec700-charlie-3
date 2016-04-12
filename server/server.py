@@ -24,6 +24,10 @@ ALLOWED_EXTENSIONS = set(['zip'])
 ###############################################################################
 
 def get_current_sample_id(machine_id):
+    '''
+       Returns the malware sample id, or
+       None if the machine doesn't exist in db
+     '''
     malware_id = None
     conn = e.connect()
     sql = 'SELECT malware_id FROM machine WHERE machine = :name'
@@ -35,6 +39,9 @@ def get_current_sample_id(machine_id):
 
 
 def change_sample(machine_id):
+    '''
+    Increments the malware_id for machine_id
+    '''
     malware_id = get_current_sample_id(machine_id)
     conn = e.connect()
     sql = 'UPDATE machine SET malware_id=:new_id WHERE machine = :name'
@@ -53,7 +60,19 @@ def allowed_file(filename):
 
 def upload_file(machine_id, results):
     malware_id = get_current_sample_id(machine_id)
+    if malware_id is None:
+        return "Machine doesn't exist.", 400
+
     filename = secure_filename(results.filename)
+    print filename
+
+    try:
+        print int(filename.split(".")[0])
+        if int(filename.split(".")[0]) != malware_id:
+            return 'File is not for current malware sample', 400
+    except:
+        return 'File is not for current malware sample', 400
+
     path = os.path.join(app.config['UPLOAD_FOLDER'], machine_id)
 
     # Create machine folder if it doesn't exist
@@ -73,20 +92,24 @@ def upload_file(machine_id, results):
 
 
 class Machine(Resource):
-    def put(self, machine_id):
+    def post(self, machine_id):
         return self.add_machine(machine_id)
 
-    def get(self, machine_id):
-        return self.add_machine(machine_id)
+    # def get(self, machine_id):
+    #     return self.add_machine(machine_id)
 
     def add_machine(self, machine_id):
-        # Connect to databse
-        conn = e.connect()
-        # Perform query
-        sql = 'INSERT INTO machine (machine, malware_id) VALUES (:name, 1)'
-        conn.execute(sql, name=machine_id)
-        conn.close()
-        return '', 201
+        malware_id = get_current_sample_id(machine_id)
+        if malware_id is None:
+            # Connect to databse
+            conn = e.connect()
+            # Perform query
+            sql = 'INSERT INTO machine (machine, malware_id) VALUES (:name, 1)'
+            conn.execute(sql, name=machine_id)
+            conn.close()
+            return '', 201
+        else:
+            return 'Machine already exists', 400
 
 
 class Malware(Resource):
@@ -95,16 +118,10 @@ class Malware(Resource):
 
     def get(self, machine_id):
         malware_id = get_current_sample_id(machine_id)
+        print "Malware ID is %d" % malware_id
         return send_from_directory(app.config['DOWNLOAD_FOLDER'],
-                                   str(malware_id) + '.zip')
-
-    def put(self, machine_id):
-        args = self.parser.parse_args()
-        results = args['result']
-        if results and allowed_file(results.filename):
-            return upload_file(machine_id, results)
-        else:
-            return 'File extension is not supported', 400
+                                   (str(malware_id) + '.zip'),
+                                   as_attachment=True)
 
     def post(self, machine_id):
         args = self.parser.parse_args()
@@ -123,4 +140,4 @@ api.add_resource(Malware, '/<string:machine_id>')
 api.add_resource(Machine, '/create/<string:machine_id>')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='127.0.0.1', port=80, debug=True)
